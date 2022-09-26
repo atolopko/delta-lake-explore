@@ -24,7 +24,7 @@ class Table:
     def table(self) -> DeltaTable:
         if self._table is None:
             self._table = Table.create(self.spark, self.name, self.schema)
-            print(self._table.detail)
+            self._table.detail().show()
         return self._table
 
     def insert_row(self, record: Tuple):
