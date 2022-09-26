@@ -27,7 +27,7 @@ if __name__ == '__main__':
     t = Table(s, sys.argv[1], schema)
 
     if sys.argv[2] == 'insert':
-        rows = [build_row() for _ in range(int(sys.argv[2]))]
+        rows = [build_row() for _ in range(int(sys.argv[3]))]
         t.insert_rows(rows)
     elif sys.argv[2] == 'show':
         while True:
