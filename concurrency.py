@@ -21,17 +21,15 @@ storage system (https://docs.delta.io/latest/delta-storage.html)
 if __name__ == '__main__':
     s = init_spark()
 
-    # DeltaTable.forName(s, "/tmp/test_table").toDF().show()
-
     schema = StructType([StructField("id", StringType(), nullable=False),
                          StructField("name", StringType(), nullable=False)])
 
-    t = Table(s, "test_table", schema)
+    t = Table(s, sys.argv[1], schema)
 
-    if sys.argv[1] == 'insert':
+    if sys.argv[2] == 'insert':
         rows = [build_row() for _ in range(int(sys.argv[2]))]
         t.insert_rows(rows)
-    elif sys.argv[1] == 'show':
+    elif sys.argv[2] == 'show':
         while True:
             t.show()
             sleep(2)
