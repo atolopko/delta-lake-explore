@@ -9,6 +9,10 @@ from table import Table
 
 """
 Experiment with s3 as storage layer
+
+* 1-1.5 sec/read. Slow!
+* spark.databricks.delta.checkLatestSchemaOnRead can be used avoid checking, so clearly this means an S3 round-trip
+  is occurring on every read (tested by deleting table and next query did fail, as expected). 
 """
 
 if __name__ == '__main__':
