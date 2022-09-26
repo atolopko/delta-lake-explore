@@ -1,4 +1,5 @@
 pyspark
+#databricks-connect
 delta-spark
 pandas
 funcy
